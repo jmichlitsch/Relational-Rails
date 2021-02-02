@@ -1,0 +1,9 @@
+<h1>All Dealerships </h1>
+
+  <% @dealerships.each do |dealership| %>
+    <h3><%= dealership %></h3>
+  <% end %>
+
+  <ul>
+    <li><a href = '/dealerships/new'>New Dealership</a></li>
+  </ul>

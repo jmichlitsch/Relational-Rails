@@ -1,0 +1,11 @@
+<form action="/dealerships" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new dealership:</p>
+  <label for='name'>Dealership Name</label><br/>
+  <input type='text' name='dealership[name]' id='name' /><br/>
+  <label for='inv'>Lot Size</label><br/>
+  <input type='number' max_inventory='dealership[max_inventory]' id='inv' /><br/>
+  <label for='county'>Is it in county?</label><br/>
+  <input type='checkbox' in_county='dealership[in_county]' id='county' /><br/>
+  <input type='submit' />
+</form>
