@@ -1,0 +1,3 @@
+class Dealership < ApplicationRecord
+
+end  
