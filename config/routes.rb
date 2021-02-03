@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   get '/dealerships/:id/edit', to: 'dealerships#edit'
   patch '/dealerships/:id', to: 'dealerships#update'
   delete '/dealerships/:id', to: 'dealerships#destroy'
+  get '/shops', to: 'shops#index'
+  get '/shops/new', to: 'shops#new'
+  post '/shops', to: 'shops#create'
+  get '/shops/:id', to:"shops#show"
+  get '/shops/:id/edit', to: 'shops#edit'
+  patch '/shops/:id', to: 'shops#update'
+  delete '/shops/:id', to: 'shops#destroy'
 end

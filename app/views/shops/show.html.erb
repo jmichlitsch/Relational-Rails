@@ -1,0 +1,16 @@
+<a href="/shops">shop Index</a>
+
+<h1><%= @shop.name %></h1>
+
+<p>shop I.D.: <%= @shop.id %></p>
+<p>Square Footage: <%= @shop.square_footage %></p>
+<p>Parking Lot?: <%= @shop.parking_lot %></p>
+<p>Created At: <%= @shop.created_at %></p>
+<p>Updated At: <%= @shop.updated_at %></p>
+
+<a href="/shops/<%= @shop.id %>/edit">Update shop</a><br><br><br>
+<form action="/shops/<%= @shop.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+</form>
