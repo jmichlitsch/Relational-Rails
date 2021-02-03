@@ -1,0 +1,16 @@
+<a href="/dealerships">Dealership Index</a>
+
+<h1><%= @dealership.name %></h1>
+
+<p>Dealership I.D: <%= @dealership.id %></p>
+<p>Max Inventory: <%= @dealership.max_inventory %></p>
+<p>In County?: <%= @dealership.in_county %></p>
+<p>Created At: <%= @dealership.created_at %></p>
+<p>Updated At: <%= @dealership.updated_at %></p>
+
+<a href="/dealerships/<%= @dealership.id %>/edit">Update Dealership</a><br><br><br>
+<form action="/dealerships/<%= @dealership.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+</form>

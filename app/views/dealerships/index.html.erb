@@ -1,7 +1,7 @@
 <h1>All Dealerships </h1>
 
   <% @dealerships.each do |dealership| %>
-    <h3><%= dealership %></h3>
+    <h3><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %></a></h3>
   <% end %>
 
   <ul>

@@ -1,12 +1,12 @@
-
-<form action="/dealerships" method="post">
+<form action="/dealerships/<%= @dealership.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new dealership:</p>
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
   <label for="name">Dealership Name</label><br>
-  <input type="text" name="dealership[name]" id="name"/><br>
+  <input type='text' name='dealership[name]' value="<%= @dealership.name %>"/><br/>
   <label for="max_inventory">Lot Size</label><br>
   <input type="number" name="dealership[max_inventory]" id="max_inventory"/><br>
   <label for="in_county">Is it in county?</label><br>
   <input type="checkbox" name="dealership[in_county]" id="in_county"/><br>
-  <input type="submit"/> %>
-</form> --> %>
+  <input type="submit"/>
+</form>

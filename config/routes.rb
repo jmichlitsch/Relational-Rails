@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   get '/dealerships', to: 'dealerships#index'
   get '/dealerships/new', to: 'dealerships#new'
   post '/dealerships', to: 'dealerships#create'
+  get '/dealerships/:id', to:"dealerships#show"
+  get '/dealerships/:id/edit', to: 'dealerships#edit'
+  patch '/dealerships/:id', to: 'dealerships#update'
+  delete '/dealerships/:id', to: 'dealerships#destroy'
 end
