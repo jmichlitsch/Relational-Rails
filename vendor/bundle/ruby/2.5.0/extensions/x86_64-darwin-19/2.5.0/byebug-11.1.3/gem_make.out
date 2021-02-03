@@ -1,0 +1,19 @@
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+/Users/jacobvolpe/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20210203-4694-1tj2ggw.rb extconf.rb
+creating Makefile
+
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20210203-4694-1e85fvx/byebug

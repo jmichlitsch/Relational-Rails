@@ -1,0 +1,16 @@
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+/Users/jacobvolpe/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20210203-4694-n553rm.rb extconf.rb
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/jacobvolpe/Turing/Mod2/Relational-Rails/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20210203-4694-oel4p4/racc
