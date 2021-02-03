@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_230154) do
+ActiveRecord::Schema.define(version: 2021_02_03_205839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2021_02_02_230154) do
     t.string "name"
     t.integer "max_inventory"
     t.boolean "in_county"
+    t.string "created_at"
+    t.string "updated_at"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name"
+    t.integer "square_footage"
+    t.boolean "parking_lot"
     t.string "created_at"
     t.string "updated_at"
   end

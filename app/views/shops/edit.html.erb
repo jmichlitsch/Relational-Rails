@@ -1,0 +1,12 @@
+<form action="/shops/<%= @shop.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <label for="name">Shop Name</label><br>
+  <input type='text' name='shop[name]' value="<%= @shop.name %>"/><br/>
+  <label for="square_footage">Square Footage</label><br>
+  <input type="number" name="shop[square_footage]" id="square_footage"/><br>
+  <label for="parking_lot">Is there a parking lot?</label><br>
+  <input type="checkbox" name="shop[parking_lot]" id="parking_lot"/><br>
+  <input type="submit"/>
+</form>
