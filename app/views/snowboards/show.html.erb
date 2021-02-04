@@ -1,0 +1,16 @@
+<a href="/snowboards">snowboard Index</a>
+
+<h1><%= @snowboard.name %></h1>
+
+<p>Snowboard I.D.: <%= @snowboard.id %></p>
+<p>Length: <%= @snowboard.length %></p>
+<p>Wide Stance: <%= @snowboard.wide_stance %></p>
+<p>Created At: <%= @snowboard.created_at %></p>
+<p>Updated At: <%= @snowboard.updated_at %></p>
+
+<a href="/snowboards/<%= @snowboard.id %>/edit">Update Snowboard</a><br><br><br>
+<form action="/snowboards/<%= @snowboard.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+</form>

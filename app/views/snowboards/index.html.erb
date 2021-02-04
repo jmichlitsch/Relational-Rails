@@ -1,0 +1,22 @@
+<h1>All Snowboards</h1>
+
+<% @snowboards.each do |snowboard| %>
+  <h4><a href="/snowboards/<%= snowboard.id %>"><%= snowboard.name =%></a></h4>
+  <%= snowboard.length %><br>
+  <%= snowboard.wide_stance %><br>
+  <%= snowboard.id %><br>
+  <%= snowboard.created_at %><br>
+  <%= snowboard.updated_at %><br>
+  <% end %>
+
+  <form action="/snowboards" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <p>Enter a new snowboard:</p>
+    <label for="name">Snowboard Name</label><br>
+    <input type="text" name="snowboard[name]" id="name"/><br>
+    <label for="length">Length</label><br>
+    <input type="number" name="snowboard[length]" id="length"/><br>
+    <label for="wide_stance">Is it a wide stance board?</label><br>
+    <input type="checkbox" name="snowboard[wide_stance]" id="wide_stance"/><br>
+    <input type="submit"/>
+  </form>
