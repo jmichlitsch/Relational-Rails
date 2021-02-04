@@ -1,0 +1,3 @@
+class Snowboard < ApplicationRecord
+
+end

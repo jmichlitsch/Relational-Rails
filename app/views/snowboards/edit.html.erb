@@ -1,0 +1,12 @@
+<form action="/snowboards/<%= @snowboard.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <label for="name">Snowboard Name</label><br>
+  <input type='text' name='snowboard[name]' value="<%= @snowboard.name %>"/><br/>
+  <label for="length">Length in cm</label><br>
+  <input type="number" name="snowboard[length]" id="length"/><br>
+  <label for="wide_stance">Is it a wide stance board?</label><br>
+  <input type="checkbox" name="snowboard[wide_stance]" id="wide_stance"/><br>
+  <input type="submit"/>
+</form>
