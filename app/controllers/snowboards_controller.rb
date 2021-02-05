@@ -12,8 +12,9 @@ class SnowboardsController < ApplicationController
       length: params[:snowboard][:length],
       wide_stance: params[:snowboard][:wide_stance],
       created_at: Time.now.to_s,
-      updated_at: Time.now.to_s
+      updated_at: Time.now.to_s,
       })
+      
       snowboard.save
 
       redirect_to '/snowboards'
