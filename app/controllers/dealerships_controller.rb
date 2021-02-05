@@ -46,4 +46,7 @@ class DealershipsController < ApplicationController
     Dealership.destroy(params[:id])
     redirect_to '/dealerships'
   end
+
+  def auto
+  end
 end

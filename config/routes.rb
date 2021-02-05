@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/shops/:id/edit', to: 'shops#edit'
   patch '/shops/:id', to: 'shops#update'
   delete '/shops/:id', to: 'shops#destroy'
+  get '/shops/:id/boards', to: 'shops#boards'
+  get '/shops/:id/boards/new_board', to: 'shops#new_board'
+  post '/shops/:id/boards', to: 'shops#create_board'
 
   get '/snowboards', to: 'snowboards#index'
   get '/snowboards', to: 'snowboards#new'
@@ -25,5 +28,9 @@ Rails.application.routes.draw do
   get '/snowboards/:id/edit', to: 'snowboards#edit'
   patch '/snowboards/:id', to: 'snowboards#update'
   delete '/snowboards/:id', to: 'snowboards#destroy'
+
+
+  get '/vehicles', to: 'vehicles#index'
+  get '/dealerships/:id/auto', to: 'dealerships#auto'
 
 end

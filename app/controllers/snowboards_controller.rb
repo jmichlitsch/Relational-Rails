@@ -45,4 +45,5 @@ class SnowboardsController < ApplicationController
     Snowboard.destroy(params[:id])
     redirect_to '/snowboards'
   end
+
 end
