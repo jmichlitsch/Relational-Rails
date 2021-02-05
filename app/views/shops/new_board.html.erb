@@ -1,4 +1,4 @@
-<form action="/shops/:id/boards" method="post">
+<form action="/shops/shop.id/boards" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new snowboard:</p>
   <label for="name">Snowboard Name</label><br>
@@ -7,5 +7,7 @@
   <input type="number" name="snowboard[length]" id="length"/><br>
   <label for="wide_stance">Is it a wide stance board?</label><br>
   <input type="checkbox" name="snowboard[wide_stance]" id="wide_stance"/><br>
+  <input type="hidden" name="shop_id" value="<%= @shop.id %>">
   <input type="submit"/>
 </form>
+

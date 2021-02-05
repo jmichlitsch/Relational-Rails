@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   delete '/shops/:id', to: 'shops#destroy'
   get '/shops/:id/boards', to: 'shops#boards'
   get '/shops/:id/boards/new_board', to: 'shops#new_board'
-  post '/shops/:id/boards', to: 'shops#create_board'
+  post '/shops/shop.id/boards', to: 'shops#create_board'
 
   get '/snowboards', to: 'snowboards#index'
   get '/snowboards', to: 'snowboards#new'

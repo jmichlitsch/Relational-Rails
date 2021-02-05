@@ -46,24 +46,29 @@ class ShopsController < ApplicationController
 
   def boards
     @snowboards = Snowboard.all
-    @snowboards.map{|snowboard| snowboard.shop_id == params[:id].to_i}
+    @boards = @snowboards.map do |snowboard|
+      snowboard.shop_id == params[:id].to_i
+    end
+    @shop_id = params[:id].to_i
   end
 
   def create_board
-    snowboard = Snowboard.new({
+    shop = Shop.find(params[:shop_id])
+    snowboard = shop.snowboards.new({
       name: params[:snowboard][:name],
       length: params[:snowboard][:length],
       wide_stance: params[:snowboard][:wide_stance],
       created_at: Time.now.to_s,
       updated_at: Time.now.to_s,
-      # shop_id: params[:id]
       })
-      # binding.pry
+      binding.pry
      snowboard.save
-
-      redirect_to '/shops/:id/boards'
+     
+      # redirect_to '/shops/shop.id/boards'
   end
 
   def new_board
+    @shop = Shop.all.find{|shop| shop.id == params[:id].to_i}
+    @shop
   end
 end
