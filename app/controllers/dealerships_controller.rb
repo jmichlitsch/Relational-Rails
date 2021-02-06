@@ -3,6 +3,7 @@ require 'time'
 class DealershipsController < ApplicationController
   def index
     @dealerships = Dealership.all
+    @order = @dealerships.sort_by{|dealership| dealership.id}.reverse
   end
 
   def new
@@ -66,7 +67,7 @@ class DealershipsController < ApplicationController
     unless params[:vehicle][:auto_transmission]
       params[:vehicle][:auto_transmission] = false
     end
-    
+
     dealership = Dealership.find(params[:dealership_id])
     vehicle = dealership.vehicles.new({
       name: params[:vehicle][:name],
