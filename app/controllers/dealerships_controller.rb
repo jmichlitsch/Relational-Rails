@@ -9,7 +9,10 @@ class DealershipsController < ApplicationController
   end
 
   def create
-    # binding.pry
+    unless params[:dealership][:in_county]
+      params[:dealership][:in_county] = false
+    end
+    
     dealership = Dealership.new({
       name: params[:dealership][:name],
       max_inventory: params[:dealership][:max_inventory],
@@ -31,6 +34,10 @@ class DealershipsController < ApplicationController
   end
 
   def update
+    unless params[:dealership][:in_county]
+      params[:dealership][:in_county] = false
+    end
+
     dealership = Dealership.find(params[:id])
     dealership.update({
       name: params[:dealership][:name],
@@ -56,6 +63,10 @@ class DealershipsController < ApplicationController
   end
 
   def create_auto
+    unless params[:vehicle][:auto_transmission]
+      params[:vehicle][:auto_transmission] = false
+    end
+    
     dealership = Dealership.find(params[:dealership_id])
     vehicle = dealership.vehicles.new({
       name: params[:vehicle][:name],
@@ -69,6 +80,7 @@ class DealershipsController < ApplicationController
 
     redirect_to "/dealerships/#{dealership.id}/autos"
   end
+
   def new_auto
     @dealership = Dealership.all.find{|dealership| dealership.id == params[:id].to_i}
   end

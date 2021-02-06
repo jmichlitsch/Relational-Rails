@@ -1,3 +1,3 @@
 class Shop < ApplicationRecord
-  has_many :snowboards
+  has_many :snowboards, dependent: :destroy 
 end

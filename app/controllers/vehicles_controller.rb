@@ -12,6 +12,10 @@ class VehiclesController < ApplicationController
   end
 
   def update
+    unless params[:vehicle][:auto_transmission]
+      params[:vehicle][:auto_transmission] = false
+    end
+
     vehicle = Vehicle.find(params[:id])
     vehicle.update({
       name: params[:vehicle][:name],
@@ -27,6 +31,10 @@ class VehiclesController < ApplicationController
   end
 
   def create
+    unless params[:vehicle][:auto_transmission]
+      params[:vehicle][:auto_transmission] = false
+    end
+    
     vehicle = Vehicle.new({
       name: params[:vehicle][:name],
       passenger_limit: params[:vehicle][:passenger_limit],

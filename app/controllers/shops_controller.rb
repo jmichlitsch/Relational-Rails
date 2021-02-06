@@ -7,6 +7,10 @@ class ShopsController < ApplicationController
   end
 
   def create
+    unless params[:shop][:parking_lot]
+      params[:shop][:parking_lot] = false
+    end
+
     shop = Shop.new({
       name: params[:shop][:name],
       square_footage: params[:shop][:square_footage],
@@ -28,6 +32,10 @@ class ShopsController < ApplicationController
   end
 
   def update
+    unless params[:shop][:parking_lot]
+      params[:shop][:parking_lot] = false
+    end
+
     shop = Shop.find(params[:id])
     shop.update({
       name: params[:shop][:name],
@@ -53,6 +61,10 @@ class ShopsController < ApplicationController
   end
 
   def create_board
+    unless params[:snowboard][:wide_stance]
+      params[:snowboard][:wide_stance] = false
+    end
+    
     shop = Shop.find(params[:shop_id])
     snowboard = shop.snowboards.new({
       name: params[:snowboard][:name],

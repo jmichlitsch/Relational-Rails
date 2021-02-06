@@ -29,6 +29,10 @@ class SnowboardsController < ApplicationController
   end
 
   def update
+    unless params[:snowboard][:wide_stance]
+      params[:snowboard][:wide_stance] = false
+    end
+
     snowboard = Snowboard.find(params[:id])
     snowboard.update({
       name: params[:snowboard][:name],
