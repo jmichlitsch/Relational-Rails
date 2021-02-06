@@ -61,10 +61,9 @@ class ShopsController < ApplicationController
       created_at: Time.now.to_s,
       updated_at: Time.now.to_s,
       })
-      binding.pry
      snowboard.save
-     
-      # redirect_to '/shops/shop.id/boards'
+
+      redirect_to "/shops/#{shop.id}/boards"
   end
 
   def new_board

@@ -1,0 +1,12 @@
+<form action="/dealerships/dealership.id/autos" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new vehicle:</p>
+  <label for="name">Vehicle Name</label><br>
+  <input type="text" name="vehicle[name]" id="name"/><br>
+  <label for="passenger_limit">Passenger Limit</label><br>
+  <input type="number" name="vehicle[passenger_limit]" id="passenger_limit"/><br>
+  <label for="auto_transmission">Is it an automatic transmission?</label><br>
+  <input type="checkbox" name="vehicle[auto_transmission]" id="auto_transmission"/><br>
+  <input type="hidden" name="dealership_id" value="<%= @dealership.id %>">
+  <input type="submit"/>
+</form>

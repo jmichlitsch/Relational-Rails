@@ -1,0 +1,17 @@
+<a href="/vehicles">Vehicle Index</a>
+
+<h1><%= @vehicle.name %></h1>
+
+<p>Vehicle I.D.: <%= @vehicle.id %></p>
+<p>Passenger Limit: <%= @vehicle.passenger_limit %></p>
+<p> Automatic Transmission: <%= @vehicle.auto_transmission %></p>
+<p> Created At: <%= @vehicle.created_at %></p>
+<p> Updated At: <%= @vehicle.updated_at %></p>
+
+<a href="/vehicles/<%= @vehicle.id %>/edit">Update Vehicle</a><br><br><br>
+
+<form action="/vehicles/<%= @vehicle.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+</form>

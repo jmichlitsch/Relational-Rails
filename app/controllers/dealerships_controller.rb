@@ -47,6 +47,29 @@ class DealershipsController < ApplicationController
     redirect_to '/dealerships'
   end
 
-  def auto
+  def autos
+    @vehicles = Vehicle.all
+    @autos = @vehicles.map do |vehicle|
+      vehicle.dealership_id == params[:id].to_i
+    end
+    @dealership_id = params[:id].to_i
+  end
+
+  def create_auto
+    dealership = Dealership.find(params[:dealership_id])
+    vehicle = dealership.vehicles.new({
+      name: params[:vehicle][:name],
+      passenger_limit: params[:vehicle][:passenger_limit],
+      auto_transmission: params[:vehicle][:auto_transmission],
+      created_at: Time.now.to_s,
+      updated_at: Time.now.to_s
+      })
+
+    vehicle.save
+
+    redirect_to "/dealerships/#{dealership.id}/autos"
+  end
+  def new_auto
+    @dealership = Dealership.all.find{|dealership| dealership.id == params[:id].to_i}
   end
 end

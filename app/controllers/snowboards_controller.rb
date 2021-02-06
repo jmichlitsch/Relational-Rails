@@ -14,7 +14,7 @@ class SnowboardsController < ApplicationController
       created_at: Time.now.to_s,
       updated_at: Time.now.to_s,
       })
-      
+
       snowboard.save
 
       redirect_to '/snowboards'
@@ -43,8 +43,11 @@ class SnowboardsController < ApplicationController
   end
 
   def destroy
+    snowboard = Snowboard.find(params[:id])
+    shop_id = snowboard.shop_id
     Snowboard.destroy(params[:id])
-    redirect_to '/snowboards'
+    redirect_to "/snowboards"
+    redirect_to "/shops/#{shop_id}/boards"
   end
 
 end

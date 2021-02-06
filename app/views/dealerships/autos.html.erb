@@ -1,4 +1,4 @@
-<h1>All Vehicles </h1>
+<h1>Dealership's Vehicles</h1>
 
 <% @vehicles.each do |vehicle| %>
   <h4><a href="/vehicles/<%= vehicle.id %>"><%= vehicle.name =%></a></h4>
@@ -9,4 +9,5 @@
     <li>Created At: <%= vehicle.created_at %></li>
     <li>Updated At:<%= vehicle.updated_at %></li>
   </ul>
-  <% end %>
+<% end %>
+ <p><a href="/dealerships/<%= @dealership_id %>/autos/new_auto">New Vehicle</a></p>

@@ -1,15 +1,17 @@
-<h1> All Snowboards </h1>
+<h1> Shop's Snowboards </h1>
 
 <% @snowboards.each do |snowboard| %>
   <h4><a href="/snowboards/<%= snowboard.id %>"><%= snowboard.name =%></a></h4>
-  <%= snowboard.length %><br>
-  <%= snowboard.wide_stance %><br>
-  <%= snowboard.id %><br>
-  <%= snowboard.created_at %><br>
-  <%= snowboard.updated_at %><br>
+  <ul>
+    <li>Length in Centimeters: <%= snowboard.length %></li>
+    <li>Wide Stance: <%= snowboard.wide_stance %></li>
+    <li>Snowboard I.D.: <%= snowboard.id %></li>
+    <li>Created At: <%= snowboard.created_at %></li>
+    <li>Updated At: <%= snowboard.updated_at %></li>
+  </ul>
   <% end %>
 
-  
+
 
 
   <p><a href="/shops/<%= @shop_id %>/boards/new_board">New Board</a></p>
