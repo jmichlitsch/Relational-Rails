@@ -28,6 +28,7 @@ class DealershipsController < ApplicationController
 
   def show
     @dealership = Dealership.find(params[:id])
+    @child_count = @dealership.vehicles.count 
   end
 
   def edit
@@ -57,7 +58,7 @@ class DealershipsController < ApplicationController
 
   def autos
     @vehicles = Vehicle.all
-    @autos = @vehicles.map do |vehicle|
+    @autos = @vehicles.find_all do |vehicle|
       vehicle.dealership_id == params[:id].to_i
     end
     @dealership_id = params[:id].to_i
@@ -84,5 +85,12 @@ class DealershipsController < ApplicationController
 
   def new_auto
     @dealership = Dealership.all.find{|dealership| dealership.id == params[:id].to_i}
+  end
+
+  def limits
+    binding.pry
+    @autos = @autos.find_all{|auto| auto.passenger_limit > limits}
+
+    redirect_to "/dealerships/#{dealership.id}/autos"
   end
 end

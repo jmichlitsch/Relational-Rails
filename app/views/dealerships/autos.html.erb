@@ -1,13 +1,19 @@
 <h1>Dealership's Vehicles</h1>
 
-<% @vehicles.each do |vehicle| %>
-  <h4><a href="/vehicles/<%= vehicle.id %>"><%= vehicle.name =%></a></h4>
+<% @autos.each do |auto| %>
+  <h4><a href="/vehicles/<%= auto.id %>"><%= auto.name =%></a></h4>
   <ul>
-    <li>Passenger Limit: <%= vehicle.passenger_limit %></li>
-    <li>Automatic Tranmission: <%= vehicle.auto_transmission %></li>
-    <li>Vehicle Id: <%= vehicle.id %></li>
-    <li>Created At: <%= vehicle.created_at %></li>
-    <li>Updated At:<%= vehicle.updated_at %></li>
+    <li>Passenger Limit: <%= auto.passenger_limit %></li>
+    <li>Automatic Tranmission: <%= auto.auto_transmission %></li>
+    <li>Vehicle Id: <%= auto.id %></li>
+    <li>Created At: <%= auto.created_at %></li>
+    <li>Updated At:<%= auto.updated_at %></li>
   </ul>
 <% end %>
- <p><a href="/dealerships/<%= @dealership_id %>/autos/new_auto">New Vehicle</a></p>
+ <p><a href="/dealerships/<%= @dealership_id %>/autos/new_auto">New Vehicle</a></p><br><br> 
+
+ <form action="/dealerships/<%= @dealership_id %>/autos/" method="post">
+  <label for="limits">Minimum Passengers for vehicle: </label>
+  <input type="number" name="limits" id="limits">
+  <input type="submit">
+</form>

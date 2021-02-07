@@ -1,6 +1,6 @@
 <h1> Shop's Snowboards </h1>
 
-<% @snowboards.each do |snowboard| %>
+<% @boards.each do |snowboard| %>
   <h4><a href="/snowboards/<%= snowboard.id %>"><%= snowboard.name =%></a></h4>
   <ul>
     <li>Length in Centimeters: <%= snowboard.length %></li>
