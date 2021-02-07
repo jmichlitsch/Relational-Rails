@@ -54,7 +54,7 @@ class ShopsController < ApplicationController
 
   def boards
     @snowboards = Snowboard.all
-    @boards = @snowboards.map do |snowboard|
+    @boards = @snowboards.find_all do |snowboard|
       snowboard.shop_id == params[:id].to_i
     end
     @shop_id = params[:id].to_i

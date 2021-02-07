@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
+    @true = @vehicles.find_all{|vehicle| vehicle.auto_transmission == true}
   end
 
   def show
