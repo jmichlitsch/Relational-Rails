@@ -51,7 +51,7 @@ class SnowboardsController < ApplicationController
     shop_id = snowboard.shop_id
     Snowboard.destroy(params[:id])
     redirect_to "/snowboards"
-    redirect_to "/shops/#{shop_id}/boards"
+    # redirect_to "/shops/#{shop_id}/boards"
   end
 
 end

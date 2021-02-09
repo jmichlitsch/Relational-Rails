@@ -8,6 +8,12 @@
     <li>Vehicle Id: <%= auto.id %></li>
     <li>Created At: <%= auto.created_at %></li>
     <li>Updated At:<%= auto.updated_at %></li>
+    <a href="/vehicles/<%= auto.id %>/edit">Update Vehicle</a><br><br>
+    <form action="/vehicles/<%= auto.id %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
+  </form>
   </ul>
 <% end %>
  <p><a href="/dealerships/<%= @dealership_id %>/autos/new_auto">New Vehicle</a></p><br><br>

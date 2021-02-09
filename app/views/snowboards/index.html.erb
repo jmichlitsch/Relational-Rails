@@ -8,5 +8,11 @@
     <li>Snowboard I.D.: <%= snowboard.id %></li>
     <li>Created At: <%= snowboard.created_at %></li>
     <li>Updated At: <%= snowboard.updated_at %></li>
+    <a href="/snowboards/<%= snowboard.id %>/edit">Update Snowboard</a><br><br>
+    <form action="/snowboards/<%= snowboard.id %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
+  </form>
   </ul>
   <% end %>

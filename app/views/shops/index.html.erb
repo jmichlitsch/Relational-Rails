@@ -2,6 +2,12 @@
 
 <% @shops.each do |shop| %>
   <h3><a href="/shops/<%= shop.id %>"><%= shop.name %> Created At: <%= shop.created_at %></a></h3>
+  <a href="/shops/<%= shop.id %>/edit">Update shop</a><br><br>
+  <form action="/shops/<%= shop.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+</form><br>
 <% end %>
 
 <ul>
