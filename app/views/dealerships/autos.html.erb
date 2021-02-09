@@ -10,10 +10,12 @@
     <li>Updated At:<%= auto.updated_at %></li>
   </ul>
 <% end %>
- <p><a href="/dealerships/<%= @dealership_id %>/autos/new_auto">New Vehicle</a></p><br><br> 
+ <p><a href="/dealerships/<%= @dealership_id %>/autos/new_auto">New Vehicle</a></p><br><br>
 
- <form action="/dealerships/<%= @dealership_id %>/autos/" method="post">
+ <form action="/dealerships/<%= @dealership_id %>/autos/" method="get">
   <label for="limits">Minimum Passengers for vehicle: </label>
   <input type="number" name="limits" id="limits">
   <input type="submit">
 </form>
+
+ <p><%= link_to "Alphabetize", "/dealerships/#{@dealership_id}/autos?alpha=sort" %></p>

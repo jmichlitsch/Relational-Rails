@@ -10,8 +10,12 @@
     <li>Updated At: <%= snowboard.updated_at %></li>
   </ul>
   <% end %>
-
-
-
-
   <p><a href="/shops/<%= @shop_id %>/boards/new_board">New Board</a></p>
+
+  <form action="/shops/<%= @shop_id %>/boards/" method="get">
+   <label for="centimeters">Minimum Length of Board: </label>
+   <input type="number" name="centimeters" id="centimeters">
+   <input type="submit">
+ </form>
+
+  <p><%= link_to "Alphabetize", "/shops/#{@shop_id}/boards?alpha=sort" %></p>

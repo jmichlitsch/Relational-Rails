@@ -1,7 +1,7 @@
 <h1>All Shops </h1>
 
 <% @shops.each do |shop| %>
-  <h3><a href="/shops/<%= shop.id %>"><%= shop.name %></a></h3>
+  <h3><a href="/shops/<%= shop.id %>"><%= shop.name %> Created At: <%= shop.created_at %></a></h3>
 <% end %>
 
 <ul>

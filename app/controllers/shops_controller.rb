@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.all
+    @shops = Shop.all.sort_by{|shop| shop.id}.reverse
   end
 
   def new
@@ -25,6 +25,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @child_count = @shop.snowboards.count
   end
 
   def edit
@@ -53,7 +54,8 @@ class ShopsController < ApplicationController
   end
 
   def boards
-    @snowboards = Snowboard.all
+    @snowboards = Snowboard.filter_length(params[:centimeters])
+    @snowboards = @snowboards.alphabetize(params[:alpha])
     @boards = @snowboards.find_all do |snowboard|
       snowboard.shop_id == params[:id].to_i
     end
@@ -64,7 +66,7 @@ class ShopsController < ApplicationController
     unless params[:snowboard][:wide_stance]
       params[:snowboard][:wide_stance] = false
     end
-    
+
     shop = Shop.find(params[:shop_id])
     snowboard = shop.snowboards.new({
       name: params[:snowboard][:name],
