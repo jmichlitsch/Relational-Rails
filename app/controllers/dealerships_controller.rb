@@ -13,7 +13,7 @@ class DealershipsController < ApplicationController
     unless params[:dealership][:in_county]
       params[:dealership][:in_county] = false
     end
-    
+
     dealership = Dealership.new({
       name: params[:dealership][:name],
       max_inventory: params[:dealership][:max_inventory],
@@ -28,7 +28,7 @@ class DealershipsController < ApplicationController
 
   def show
     @dealership = Dealership.find(params[:id])
-    @child_count = @dealership.vehicles.count 
+    @child_count = @dealership.vehicles.count
   end
 
   def edit
@@ -57,7 +57,8 @@ class DealershipsController < ApplicationController
   end
 
   def autos
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.limit_passengers(params[:limits])
+    @vehicles = @vehicles.alphabetize(params[:alpha])
     @autos = @vehicles.find_all do |vehicle|
       vehicle.dealership_id == params[:id].to_i
     end

@@ -1,6 +1,6 @@
 class SnowboardsController < ApplicationController
   def index
-    @snowboards = Snowboard.all
+    @snowboards = Snowboard.all.find_all{|snowboard| snowboard.wide_stance == true}
   end
 
   def new
