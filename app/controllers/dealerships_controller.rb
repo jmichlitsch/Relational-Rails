@@ -87,11 +87,4 @@ class DealershipsController < ApplicationController
   def new_auto
     @dealership = Dealership.all.find{|dealership| dealership.id == params[:id].to_i}
   end
-
-  def limits
-    binding.pry
-    @autos = @autos.find_all{|auto| auto.passenger_limit > limits}
-
-    redirect_to "/dealerships/#{dealership.id}/autos"
-  end
 end

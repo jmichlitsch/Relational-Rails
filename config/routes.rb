@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get '/dealerships/:id/autos', to: 'dealerships#autos'
   get '/dealerships/:id/autos/new_auto', to: 'dealerships#new_auto'
   post '/dealerships/dealership.id/autos', to: 'dealerships#create_auto'
-  get '/dealerships/dealership.id/autos', to: 'dealerships#limits'
-  post '/dealerships/dealership.id/autos', to: 'dealerships#limits'
 
   get '/shops', to: 'shops#index'
   get '/shops/new', to: 'shops#new'
