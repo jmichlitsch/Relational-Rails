@@ -1,8 +1,8 @@
 <h1>All Dealerships </h1>
 
-  <% @order.each do |dealership| %>
+  <% @dealerships.each do |dealership| %>
     <h3><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %> Created At: <%= dealership.created_at %></a></h3>
-    <a href="/dealerships/<%= dealership.id %>/edit">Update Dealership</a><br><br> 
+    <a href="/dealerships/<%= dealership.id %>/edit">Update Dealership</a><br><br>
     <form action="/dealerships/<%= dealership.id %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="_method" value="DELETE">
@@ -13,3 +13,4 @@
   <ul>
     <li><a href = '/dealerships/new'>New Dealership</a></li>
   </ul>
+  <p><%= link_to "Child Count", "/dealerships?child=sort" %></p>

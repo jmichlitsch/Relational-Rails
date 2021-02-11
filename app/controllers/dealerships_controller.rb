@@ -2,8 +2,10 @@ require 'time'
 
 class DealershipsController < ApplicationController
   def index
-    @dealerships = Dealership.all
-    @order = @dealerships.sort_by{|dealership| dealership.id}.reverse
+    # @dealerships = Dealership.all
+    # @order = @dealerships.sort_by{|dealership| dealership.id}.reverse
+    @dealerships = Dealership.recent_created_by
+    @dealerships = Dealership.sort_by_children(params[:child])
   end
 
   def new
@@ -28,7 +30,7 @@ class DealershipsController < ApplicationController
 
   def show
     @dealership = Dealership.find(params[:id])
-    @child_count = @dealership.vehicles.count
+    # @child_count = @dealership.vehicles.count
   end
 
   def edit

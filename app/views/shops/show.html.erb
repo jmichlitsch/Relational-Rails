@@ -7,7 +7,7 @@
 <p>Parking Lot?: <%= @shop.parking_lot %></p>
 <p>Created At: <%= @shop.created_at %></p>
 <p>Updated At: <%= @shop.updated_at %></p>
-<p>Snowboard Count: <%= @child_count %></p>
+<p>Snowboard Count: <%= @shop.child_count%></p>
 
 <a href="/shops/<%= @shop.id %>/edit">Update shop</a><br><br><br>
 <form action="/shops/<%= @shop.id %>" method="POST">

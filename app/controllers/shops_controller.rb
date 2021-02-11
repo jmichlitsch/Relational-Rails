@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   def index
-    @shops = Shop.all.sort_by{|shop| shop.id}.reverse
+    @shops = Shop.recent_created_by
+    @shops = Shop.sort_by_children(params[:child])
   end
 
   def new
@@ -25,7 +26,6 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @child_count = @shop.snowboards.count
   end
 
   def edit

@@ -1,6 +1,6 @@
 <h1>All Vehicles </h1>
 
-<% @true.each do |vehicle| %>
+<% @vehicles.each do |vehicle| %>
   <h4><a href="/vehicles/<%= vehicle.id %>"><%= vehicle.name =%></a></h4>
   <ul>
     <li>Passenger Limit: <%= vehicle.passenger_limit %></li>

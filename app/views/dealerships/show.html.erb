@@ -7,7 +7,7 @@
 <p>In County?: <%= @dealership.in_county %></p>
 <p>Created At: <%= @dealership.created_at %></p>
 <p>Updated At: <%= @dealership.updated_at %></p>
-<p>Vehicle Count: <%= @child_count %></p>
+<p>Vehicle Count: <%= @dealership.child_count %></p>
 
 <a href="/dealerships/<%= @dealership.id %>/edit">Update Dealership</a><br><br><br>
 <form action="/dealerships/<%= @dealership.id %>" method="POST">

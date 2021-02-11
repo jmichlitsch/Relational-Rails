@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   def index
-    @vehicles = Vehicle.all
-    @true = @vehicles.find_all{|vehicle| vehicle.auto_transmission == true}
+    @vehicles = Vehicle.does_have_auto_transmission
+    # @true = @vehicles.find_all{|vehicle| vehicle.auto_transmission == true}
   end
 
   def show
@@ -31,23 +31,6 @@ class VehiclesController < ApplicationController
   def new
   end
 
-  def create
-    unless params[:vehicle][:auto_transmission]
-      params[:vehicle][:auto_transmission] = false
-    end
-    
-    vehicle = Vehicle.new({
-      name: params[:vehicle][:name],
-      passenger_limit: params[:vehicle][:passenger_limit],
-      auto_transmission: params[:vehicle][:auto_transmission],
-      created_at: Time.now.to_s,
-      updated_at: Time.now.to_s
-      })
-
-      vehicle.save
-
-      redirect_to '/vehicles'
-  end
 
   def destroy
     vehicle = Vehicle.find(params[:id])

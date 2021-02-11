@@ -1,23 +1,9 @@
 class SnowboardsController < ApplicationController
   def index
-    @snowboards = Snowboard.all.find_all{|snowboard| snowboard.wide_stance == true}
+    @snowboards = Snowboard.wide_boards
   end
 
   def new
-  end
-
-  def create
-    snowboard = Snowboard.new({
-      name: params[:snowboard][:name],
-      length: params[:snowboard][:length],
-      wide_stance: params[:snowboard][:wide_stance],
-      created_at: Time.now.to_s,
-      updated_at: Time.now.to_s,
-      })
-
-      snowboard.save
-
-      redirect_to '/snowboards'
   end
 
   def show
@@ -51,7 +37,5 @@ class SnowboardsController < ApplicationController
     shop_id = snowboard.shop_id
     Snowboard.destroy(params[:id])
     redirect_to "/snowboards"
-    # redirect_to "/shops/#{shop_id}/boards"
   end
-
 end

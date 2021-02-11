@@ -41,4 +41,22 @@ RSpec.describe 'Dealership Index' do
       end
     end
   end
+
+  describe 'Can sort by highest child count' do
+    it "can press button to sort child count" do
+      dealership1 = Dealership.create(name: "joes",
+                                      max_inventory: 150,
+                                      in_county: true)
+      dealership2 = Dealership.create(name: "harrys",
+                                      max_inventory: 150,
+                                      in_county: true)
+      vehicle1 = dealership2.vehicles.create(name: "S Class",
+                                             passenger_limit: 5,
+                                             auto_transmission: true)
+      visit '/dealerships'
+      click_link("Child Count")
+      expect(page).to have_link(dealership1.name)
+      expect(page).to have_link(dealership2.name)
+    end
+  end
 end
